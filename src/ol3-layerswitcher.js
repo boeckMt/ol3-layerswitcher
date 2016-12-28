@@ -10,12 +10,13 @@ ol.control.LayerSwitcher = function(opt_options) {
 
     var options = opt_options || {};
 
-    var tipLabel = options.tipLabel ?
-      options.tipLabel : 'Legend';
+    var tipLabel = options.tipLabel !== undefined ? options.tipLabel : 'Layers';
+    var iconClass = options.iconClass !== undefined ? options.iconClass : 'layer-switcher-icon';
+
 
     this.mapListeners = [];
 
-    this.hiddenClassName = 'ol-unselectable ol-control layer-switcher';
+    this.hiddenClassName = 'layer-switcher ol-unselectable ol-control';
     if (ol.control.LayerSwitcher.isTouchDevice_()) {
         this.hiddenClassName += ' touch';
     }
@@ -27,30 +28,53 @@ ol.control.LayerSwitcher = function(opt_options) {
     var button = document.createElement('button');
     button.setAttribute('title', tipLabel);
     element.appendChild(button);
+    var buttonIcon = document.createElement('span');
+    buttonIcon.className = iconClass;
+    //buttonIcon.textContent = '\u00BB';
+    button.appendChild(buttonIcon);
+
 
     this.panel = document.createElement('div');
     this.panel.className = 'panel';
     element.appendChild(this.panel);
+    this.panel.visible = false;
     ol.control.LayerSwitcher.enableTouchScroll_(this.panel);
 
     var this_ = this;
 
+    /*
     button.onmouseover = function(e) {
         this_.showPanel();
     };
+    */
 
+    button.onclick = function(e) {
+        e = e || window.event;
+        if(!this_.panel.visible){
+          this_.showPanel();
+          e.preventDefault();
+        }else{
+          this_.hidePanel();
+        }
+
+    };
+
+    /*
     button.onclick = function(e) {
         e = e || window.event;
         this_.showPanel();
         e.preventDefault();
     };
+    */
 
+    /*
     this_.panel.onmouseout = function(e) {
         e = e || window.event;
         if (!this_.panel.contains(e.toElement || e.relatedTarget)) {
             this_.hidePanel();
         }
     };
+    */
 
     ol.control.Control.call(this, {
         element: element,
@@ -67,6 +91,7 @@ ol.inherits(ol.control.LayerSwitcher, ol.control.Control);
 ol.control.LayerSwitcher.prototype.showPanel = function() {
     if (this.element.className != this.shownClassName) {
         this.element.className = this.shownClassName;
+        this.panel.visible = true;
         this.renderPanel();
     }
 };
@@ -77,6 +102,7 @@ ol.control.LayerSwitcher.prototype.showPanel = function() {
 ol.control.LayerSwitcher.prototype.hidePanel = function() {
     if (this.element.className != this.hiddenClassName) {
         this.element.className = this.hiddenClassName;
+        this.panel.visible = false;
     }
 };
 
