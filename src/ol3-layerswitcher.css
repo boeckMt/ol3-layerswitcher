@@ -39,7 +39,7 @@
   background-position: center;
 }
 
-
+/*
 .layer-switcher.shown .layer-switcher-icon{
   background-image:none;
 }
@@ -48,14 +48,15 @@
   position: relative;
   top: 7px;
 }
+*/
 
-
-.layer-switcher.shown button {
-    /*display: none;*/
+.layer-switcher.shown button > span{
+  background-image:none;
 }
-
-.layer-switcher button:focus, .layer-switcher button:hover {
-    /*background-color: white;*/
+.layer-switcher.shown button > span:after{
+  content: '\00BB';
+  position: relative;
+  top: 7px;
 }
 
 .layer-switcher ul {

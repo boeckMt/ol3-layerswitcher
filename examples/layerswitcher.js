@@ -1,6 +1,7 @@
 (function() {
     var layerSwitcher = new ol.control.LayerSwitcher({
-        tipLabel: 'Layers' // Optional label for button
+        tipLabel: 'Layers', // Optional label for button
+        iconClass: 'new-icon-class'
     });
 
     var map = new ol.Map({

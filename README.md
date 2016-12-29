@@ -1,4 +1,10 @@
-# OpenLayers 3 LayerSwitcher
+# OpenLayers 3 customized LayerSwitcher
+
+- show/hide panel on click
+- show overlays group only if array not empty
+
+
+# based on - OpenLayers 3 LayerSwitcher from [walkermatt](https://github.com/walkermatt/ol3-layerswitcher)
 
 Grouped layer list control for an OL3 map.
 
@@ -36,7 +42,7 @@ See [the examples](./examples) for usage.
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|`opt_options`|`Object`| Control options, extends olx.control.ControlOptions adding: **`tipLabel`** `String` - the button tooltip. |
+|`opt_options`|`Object`| Control options, extends olx.control.ControlOptions adding: **`tipLabel`** `String` - the button tooltip. and **`iconClass`** `String` - the css class for the button Icon |
 
 #### Extends
 
@@ -92,4 +98,3 @@ MIT (c) Matt Walker.
 
 If you find the layer switcher useful you might also like the
 [ol3-popup](https://github.com/walkermatt/ol3-popup).
-

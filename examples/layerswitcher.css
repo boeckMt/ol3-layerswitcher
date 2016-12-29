@@ -10,3 +10,11 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
+.new-icon-class{
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAALlJREFUWIXt1TEOgzAMRuEnhg5cKsdh68IBexXYeot2yYBCUuVP7EZqseQN9XsSMoVr2icAj7hhBPxK1j0kB+/A5h1SghfgFnfxCMnB2wFOxyxEhc1CeuHmEGtYCpkMALMZ9gqsQ4ZdQzccgDswiyEKPEfj4xU8gVUIqYXX+Nun50p/LkqIAkvfg5qQbjgdNcQM7gkxgZUrOIYosPkV5Pa6AhlO53+voDXEDa4NcYdrQ9zhUsjX4d+aNwazOex828SZAAAAAElFTkSuQmCC');
+  -webkit-filter: invert(100%); filter: invert(100%);
+  background-size: 90% 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
